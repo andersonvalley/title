@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+  height: 124px;
+  background-color: #00468533;
+
+  @include _799 {
+    flex-direction: column;
+
+    &__copyright {
+      display: flex;
+      font-size: 12px;
+      margin-bottom: 10px;
+      position: relative;
+      top: -12px;
+    }
+  }
+
+  span {
+    display: block;
+    font-weight: 600;
+  }
+}

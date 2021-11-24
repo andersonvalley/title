@@ -1,0 +1,145 @@
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms ease-in;
+  z-index: 5;
+  width: 400px;
+  height: 470px;
+  padding: 40px;
+  cursor: pointer;
+
+  @include _799 {
+    height: 100vh;
+    width: 100%;
+  }
+
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    transition: background-color 300ms ease-in-out;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      .item,
+      .item::before {
+        background-color: $blue-hover;
+      }
+    }
+
+    .item {
+      background-color: #ccc;
+      transform: rotate(45deg);
+      width: 30px;
+      height: 2px;
+
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0px;
+        width: 30px;
+        height: 2px;
+        background-color: #ccc;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 24px;
+    max-width: 260px;
+    margin-bottom: 32px;
+  }
+
+  &__form {
+    input {
+      width: 100%;
+      color: #000000;
+      box-sizing: border-box;
+      padding: 19px 22px;
+      border: 2px solid #00468533;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 15px;
+
+      &:focus {
+        color: #00000033;
+      }
+
+      &::placeholder {
+        color: #00000075;
+      }
+    }
+
+    button {
+      background-color: #d30531;
+      border: none;
+      width: 100%;
+      font-weight: 600;
+      font-size: 24px;
+      color: #fff;
+      line-height: 24px;
+      padding: 18px 32px;
+      transition: background-color 300ms ease-in-out;
+      border-radius: 8px;
+      margin-top: 9px;
+      margin-bottom: 19px;
+
+      &:hover {
+        background-color: #e1133f;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: 12px;
+    color: $blue;
+    line-height: 24px;
+    font-size: 16px;
+    transition: color 300ms ease-in-out;
+    text-decoration: none;
+    position: relative;
+    border-bottom: dotted 1px $blue;
+
+    &:hover {
+      color: $blue-hover;
+    }
+  }
+
+  &__overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms ease-in-out;
+    background-color: #000000cc;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 4;
+  }
+}
+
+.popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup.active + .popup__overlay {
+  opacity: 1;
+  visibility: visible;
+}

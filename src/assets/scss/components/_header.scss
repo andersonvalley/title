@@ -1,0 +1,246 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  height: 68px;
+  width: 100%;
+  background-color: #fff;
+  z-index: 2;
+
+  @include _799 {
+    height: 48px;
+
+    .header__help {
+      display: none;
+    }
+
+    .header__logo {
+      img {
+        width: 190px;
+      }
+    }
+
+    .burger {
+      order: 2;
+      &__item {
+        width: 25px;
+        right: -5px;
+        &::before {
+          width: 25px;
+          top: -7px;
+        }
+
+        &::after {
+          width: 25px;
+          top: 7px;
+        }
+      }
+    }
+
+    .menu {
+      transform: translateX(1000px);
+      top: 49px;
+      right: 0;
+      left: auto;
+      width: 268px;
+    }
+
+    .burger.active + .menu {
+      transform: translateX(0);
+    }
+  }
+
+  &__logo {
+    img {
+      width: 320px;
+    }
+  }
+
+  &__help {
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+
+    .b {
+      fill: $blue;
+      transition: all 300ms ease-in-out;
+    }
+
+    .a {
+      stroke: $blue;
+      fill: none;
+      stroke-width: 3px;
+      transition: all 300ms ease-in-out;
+    }
+
+    &:hover {
+      .b {
+        fill: $blue-hover;
+      }
+
+      .a {
+        stroke: $blue-hover;
+      }
+    }
+  }
+
+  &__phone {
+    display: none;
+    position: absolute;
+    right: 17px;
+    top: 48px;
+    padding: 30px 16px;
+    width: 273px;
+    height: 200px;
+    width: 241px;
+    height: 159px;
+    background-color: #fff;
+    box-shadow: 0px 3px 12px #00000033;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 300ms ease-in-out;
+
+    &:before {
+      content: '';
+      position: absolute;
+      right: 20px;
+      top: -20px;
+      border: 10px solid transparent;
+      border-bottom: 10px solid #fff;
+    }
+
+    .phone {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 38px;
+      color: #000;
+      text-decoration: none;
+      margin-top: -15px;
+    }
+
+    .email {
+      font-weight: 600;
+      color: $blue;
+      transition: color 300ms ease-in-out;
+
+      &:hover {
+        color: $blue-hover;
+      }
+    }
+  }
+
+  &__help.active + .header__phone {
+    display: flex;
+  }
+}
+
+.burger {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+
+  &:hover &__item,
+  &:hover &__item::after,
+  &:hover &__item::before {
+    background-color: $blue-hover;
+  }
+
+  &__item {
+    width: 32px;
+    height: 3px;
+    background-color: $blue;
+    position: relative;
+    transition: background-color 300ms ease-in-out;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 32px;
+      height: 3px;
+      background-color: $blue;
+      transition: background-color 300ms ease-in-out;
+    }
+
+    &::before {
+      top: -10px;
+    }
+
+    &::after {
+      top: 10px;
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  top: 69px;
+  transform: translateX(-500px);
+  height: 100vh;
+  width: 280px;
+  box-shadow: 0px 3px 12px #00000029;
+  opacity: 0.95;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 21px;
+  transition: transform 300ms ease-in-out;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 17px;
+    padding-top: 1px;
+    color: #000;
+    letter-spacing: 0px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 25px;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    margin-bottom: 37px;
+  }
+
+  &__item {
+    margin-bottom: 22px;
+
+    a {
+      color: $blue;
+      letter-spacing: 0px;
+      transition: color 300ms ease-in-out;
+      line-height: 22px;
+    }
+
+    &:hover a {
+      color: $blue-hover;
+    }
+  }
+}
+
+.burger.active {
+  transform: rotate(45deg);
+
+  .burger__item {
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+      top: 0;
+    }
+  }
+}
+
+.burger.active + .menu {
+  transform: translateX(0);
+}

@@ -1,0 +1,42 @@
+.categories {
+  text-align: center;
+  padding-top: 64px;
+
+  @include _799 {
+    display: none;
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    margin-bottom: -16px;
+    padding: 15px;
+    margin-right: -2px;
+    font-size: 20px;
+  }
+
+  &__item a {
+    color: $blue;
+    font-size: 20px;
+    line-height: 25px;
+    transition: color 300ms ease-in-out;
+    text-decoration: none;
+    border-bottom: dotted 1px $blue;
+
+    &:hover {
+      color: $blue-hover;
+    }
+  }
+}
