@@ -51,6 +51,7 @@
 
     .burger.active + .menu {
       transform: translateX(0);
+      overflow: scroll;
     }
   }
 
